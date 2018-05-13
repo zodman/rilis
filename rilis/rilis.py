@@ -16,7 +16,10 @@ def frozen(torrent, episode, anime_slug, images):
     """ 
         Subir a frozen, recuerda usar comillas en windows para parametros
 
-        Recuerda que seria frozen "file.torrent" 560 "Naruto Shippuden"
+        Recuerda que seria frozen "file.torrent" 560 "anime_slug"
+
+        Donde anime_slug es "cardcaptor-sakura-clean-card-hen" de la url
+         https://www.frozen-layer.com/animes/cardcaptor-sakura-clean-card-hen
 
      """
     _upload_frozen(torrent, anime_slug, episode, images)
