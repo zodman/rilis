@@ -24,3 +24,6 @@ para ver el ayuda de cada comando
 
 
 `rilis.exe nyaa --help`
+
+
+PD: ** si no sabes usar el CMD no uses esta aplicacion
