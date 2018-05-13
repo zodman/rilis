@@ -1,0 +1,7 @@
+lxml
+requests
+click
+grab
+guessit
+slugify
+formic-py3
