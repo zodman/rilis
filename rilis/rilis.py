@@ -10,11 +10,16 @@ def cli():
 @cli.command()
 @click.argument("torrent")
 @click.argument("episode")
-@click.argument("anime_alias")
+@click.argument("anime_slug")
 @click.option("--images", '-i', multiple=True)
-def frozen(torrent, anime_alias, images):
-    """ Subir a frozen """
-    _upload_frozen(torrents, anime_alias, images)
+def frozen(torrent, episode, anime_slug, images):
+    """ 
+        Subir a frozen, recuerda usar comillas en windows para parametros
+
+        Recuerda que seria frozen "file.torrent" 560 "Naruto Shippuden"
+
+     """
+    _upload_frozen(torrent, anime_slug, episode, images)
 
 
 @cli.command()

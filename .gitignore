@@ -3,3 +3,7 @@
 __pycache__*
 *.yaml
 *.spec
+*.zip
+*.torrent
+build/
+dist/

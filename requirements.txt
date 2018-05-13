@@ -2,6 +2,7 @@ lxml
 requests
 click
 grab
+pycurl
 guessit
 slugify
 formic-py3
