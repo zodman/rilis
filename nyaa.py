@@ -47,7 +47,8 @@ def upload_torrent(file):
 
     if res.status_code != 200:
         click.secho("failed to upload nyaa status_code {}".format(res.status_code), fg="red")
-        click.echo(str(res.content))
+        errors = res.json()
+        click.secho("{}".format(errors), fg="red")
         return
     elif res.status_code == 461:
         click.secho("Torrent exists on nyaa",fg="red")
