@@ -8,7 +8,9 @@ import os
 
 @click.group()
 def cli():
-	pass
+    """       
+    <:3 )~~~ Fansub rilis tool by zodman
+    """
 
 @cli.command()
 @click.argument("torrent")
@@ -34,6 +36,10 @@ def frozen(torrent, episode, anime_slug, images):
 @click.option("--torrent_name", default="")
 @click.argument("file")
 def anidex(subcat_id, lang_id, torrent_name, file):
+    """
+        Subir a anidex, por default subcat_id=1 lang_id=29
+
+    """
     params = get_conf("anidex")
     if not torrent_name:
         name = os.path.basename(file).replace(".torrent","")

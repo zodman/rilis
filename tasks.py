@@ -2,6 +2,9 @@ from invoke import task
 
 @task
 def deploy(ctx, up=False):
+	"""
+		script para generar el exe y subir a transfer para compartir
+	"""
 	ctx.run("pyinstaller -F rilis.py")
 	ctx.run("copy conf.yaml.ini dist\conf.yaml")
 	ctx.run("copy README.md dist\\ ")
