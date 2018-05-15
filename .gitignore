@@ -7,3 +7,4 @@ __pycache__*
 *.torrent
 build/
 dist/
+tags

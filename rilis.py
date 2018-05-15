@@ -65,6 +65,9 @@ def nyaa(file):
 @click.argument("anime_slug")
 @click.pass_context
 def stain(ctx, file, episode, anime_slug):
+    """
+        Sube un torrent a nyaa, anidex y frozen 
+    """
     ctx.invoke(nyaa, file=file)
     ctx.invoke(anidex, file=file)
     ctx.invoke(frozen, torrent=file, episode=episode, anime_slug=anime_slug)
