@@ -16,6 +16,7 @@ def _get_login():
 
 
 def upload_torrent(file):
+    click.echo("upload to nyaa")
     u,p = _get_login()
     nyaa_cfg = get_conf("nyaa")
     info = nyaa_cfg.get("info")
@@ -38,21 +39,24 @@ def upload_torrent(file):
         data=encoded_data, 
         files=files, 
         auth=(u,p))
-    click.echo("upload status_code: {}".format(res.status_code))
+    click.echo("upload nyaa status_code: {}".format(res.status_code))
     if "Upload failed" in str(res.content):
-        click.echo("failed to upload")
+        click.secho("failed to nyaa upload", fg="red")
         click.echo(str(res.content))
         return
 
     if res.status_code != 200:
-        click.echo("failed to upload status_code {}".format(res.status_code))
-        click.echo(str(res.content))
+        click.secho("failed to upload nyaa status_code {}".format(res.status_code), fg="red")
+        errors = res.json()
+        click.secho("{}".format(errors), fg="red")
         return
     elif res.status_code == 461:
-        click.echo("El torrent ya existe")
+        click.secho("Torrent exists on nyaa",fg="red")
         return
     else:
-        return res.json().get("id")
+        id =res.json().get("id")
+        click.secho("nyaa upload success https://nyaa.si/view/{}".format(id), fg="blue")
+        return id
 
 
 def upload_nyaa(file):
