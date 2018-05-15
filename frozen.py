@@ -27,6 +27,7 @@ def _upload_frozen(file, frozen_anime_slug,episode, images):
     robot = grab.Grab(timeout=1080, connect_timeout=1080)
     robot.setup(follow_location=True)
     robot.setup(debug_post=True)
+    robot.setup(user_agent="FansubTool")
     robot.go("https://www.frozen-layer.com/users/sign_in")
     robot.doc.set_input('user[login]', user)
     robot.doc.set_input('user[password]',passwd)
