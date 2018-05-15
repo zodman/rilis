@@ -1,6 +1,8 @@
 from invoke import task
 import imp
 import os
+import datetime 
+
 @task
 def compile_mktorrent(ctx):
     with ctx.cd("mktorrent"):
@@ -23,14 +25,16 @@ def deploy(ctx, up=False):
     '--hidden-import','grab.transport.curl',
     '--hidden-import','pycurl',
      '--hidden-import','grab.response',
-     '--add-data','{};{}'.format(user_agent_data, os.path.join("user_agent","data")),
+     '--add-data','{};{}'.format(user_agent_data,
+                                 os.path.join("user_agent","data")),
     '-F',
     'rilis.py'
     ]
     ctx.run(" ".join(cmd))
     ctx.run("copy conf.yaml.ini dist\\conf.yaml")
     ctx.run("copy README.md dist\\ ")
-
+    now = datetime.datetime.now().strftime("%d%H%M")
     if up:
-        ctx.run("7z a rilis.zip dist\\")
-        ctx.run("curl --progress-bar -T rilis.zip transfer.sh -k -L")
+        ctx.run("7z a rilis{}.zip dist\\".format(now))
+        ctx.run("curl --progress-bar -T rilis{}.zip" \
+                " transfer.sh -k -L".format(now))
