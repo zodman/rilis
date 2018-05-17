@@ -20,16 +20,19 @@ def upload_torrent(file):
     u,p = _get_login()
     nyaa_cfg = get_conf("nyaa")
     info = nyaa_cfg.get("info")
-    hidden = nyaa_cfg.get("hidden")
+    hidden = nyaa_cfg.get("hidden", False)
     filename = os.path.basename(file).replace(".torrent","")
     desc = nyaa_cfg.get("description")
+    category = nyaa_cfg.get("category","1_3")
+    remake = nyaa_cfg.get("remake", False)
+    anonymous = nyaa_cfg.get("anonymous", False)
     data = {
-        'category':"1_3",
+        'category':category,
         'information': info,
         'description':desc,
         'name':filename,
-        'remake':False,
-        'anonymous':False,
+        'remake': remake,
+        'anonymous':anonymous,
         'hidden':hidden,
     }
     encoded_data = {'torrent_data':json.dumps(data)}
