@@ -17,7 +17,9 @@ SPANISH=29
 def upload_file(torrent_file, subcat_id=ANIME_SUB, lang_id=SPANISH,**kwargs):
     torrent_filename = os.path.basename(torrent_file)
     files = {'file':(torrent_filename, open(torrent_file, "rb"))}
-    data = {'subcat_id': subcat_id, 'group_id': 0, 
+    data = {
+            'subcat_id': subcat_id, 
+            'group_id': 0, 
            # 'debug':1,
             'lang_id': lang_id,
             'api_key':ANIDEX_API_KEY}
