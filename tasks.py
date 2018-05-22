@@ -50,4 +50,4 @@ def deploy(ctx, up=False):
         ctx.run("7z a rilis{}.zip dist\\".format(now))
         ctx.run("curl --progress-bar -T rilis{}.zip" \
                 " transfer.sh -k -L".format(now))
-        ctx.run("del rilis{}.zip".format(now))
+        #ctx.run("del rilis{}.zip".format(now))
